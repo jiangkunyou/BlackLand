@@ -1,0 +1,205 @@
+#myContent {
+    margin: 15px auto;
+    width: 80%;
+    background-color: transparent;
+}
+
+.myhero {
+    background-image: url("../i/background/justin-jky-1920_new_2.jpg");
+    background-color: #f2f2f2;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /*color: #fff;*/
+    width: 100%;
+    /* 调整总容器的高度,防止里面的东西下沿超过总容器下沿 */
+    /*height: 100vh;*/
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+}
+
+.hero-content {
+    width: 100%;
+    text-align: center;
+    align-self: center;
+}
+
+.transparentTap {
+
+    /*-webkit-animation-name:mysecond;*/
+    /*-webkit-animation-duration:1s;*/
+    /*-webkit-animation-timing-function:linear;*/
+    /*-webkit-animation-delay:0s;*/
+    /*!*-webkit-animation-iteration-count:infinite;*!*/
+    /*-webkit-animation-direction:alternate;*/
+    /*-webkit-animation-play-state:running;*/
+
+    border-radius: 110px;
+    /*border-color: transparent;*/
+    /*border-top-width: 10px;*/
+    /*border-top-color: rgba(185, 212, 0, .2);*/
+    background-color: rgba(62, 164, 56,.1);
+    /*background-color: rgba(255,255,255, 1);*/
+    display: inline-block;
+    padding: 13px;
+    color: #000;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    width: 220px;
+    height: 220px;
+    box-shadow: 0px 0px 40px 4px rgba(90, 90, 90, 0.5);
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+    0%   {transform: rotate(355deg)}
+    25%  {transform: rotate(5deg)}
+    50%  {transform: rotate(355deg)}
+    75%  {transform: rotate(5deg)}
+    100% {transform: rotate(360deg)}
+}
+@-webkit-keyframes mysecond /* Safari and Chrome */
+{
+    0%   {transform: scale(0.5)}
+    25%  {transform: scale(1)}
+    50%  {transform: scale(1.2)}
+    75%  {transform: scale(1.1)}
+    100% {transform: scale(1)}
+}
+
+.transparentTap:hover {
+    position: relative;
+    /*border-top: 10px solid; border-radius: 2px;*/
+    box-shadow: 0px 0px 50px 4px rgba(130 ,0 ,180, 0.5);
+    transform: rotate(360deg) scale(0.9);
+    /*transition: 1s ease-in;*/
+    /*transform: rotate(5deg);*/
+    /*transition: 1s;*/
+    /*transform: rotate(355deg);*/
+    /*transition: 1s;*/
+    /*transform: rotate(5deg);*/
+}
+
+.textareaStyle {
+    width: 90%;
+    text-align: center;
+    padding: 6px;
+    font-size: 13px;
+    border-width: 0px;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+h6 a {
+    color: #000;
+    font-family: 'PingFang HK';
+    text-transform: uppercase;
+}
+
+/* 视频导航部分的样式 */
+#hero {
+    height: 26vh;
+    position: relative;
+    display: block;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden
+}
+
+#hero #hero-carousel-images {
+    width: 100%;
+    height: 100%;
+    position: static
+}
+
+#hero #hero-carousel-images .hero-images {
+    list-style: none
+}
+
+#hero #hero-carousel-images .hero-image {
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-transition: opacity 1s cubic-bezier(.33,0,.2,1),z-index 0ms linear 1s;
+    -moz-transition: opacity 1s cubic-bezier(.33,0,.2,1),z-index 0ms linear 1s;
+    -ms-transition: opacity 1s cubic-bezier(.33,0,.2,1),z-index 0ms linear 1s;
+    -o-transition: opacity 1s cubic-bezier(.33,0,.2,1),z-index 0ms linear 1s;
+    transition: opacity 1s cubic-bezier(.33,0,.2,1),z-index 0ms linear 1s
+}
+
+#hero #hero-carousel-images .hero-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    height: 100%;
+    width: auto
+}
+
+#hero #hero-carousel-images .hero-image.will-be--active {
+    z-index: 9;
+    opacity: 1;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none
+}
+
+#hero #hero-carousel-images .hero-image.will-be--active.is--active {
+    z-index: 9;
+    opacity: 1
+}
+
+#hero #hero-carousel-images .hero-image.is--active {
+    z-index: 10;
+    opacity: 1
+}
+
+#hero #hero-carousel-images .background-video .scrim {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: rgba(0,0,0,.65);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0
+}
+
+#hero #hero-carousel-images .background-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: inline-block
+}
+
+#hero #hero-carousel-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    font-family: 'League Script', cursive;
+    font-size: 650%;
+    color: #a0a0a0;
+    margin-top: 35px;
+    margin-left: 150px
+}
+

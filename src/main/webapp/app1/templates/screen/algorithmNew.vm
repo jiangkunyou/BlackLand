@@ -1,0 +1,264 @@
+#*
+Created by IntelliJ IDEA.
+User: jiangkunyou
+Date: 15/12/246
+创建算法页面
+*#
+
+#* @vtlvariable name="classifer" type="com.dlut.jky.app1.beans.Classifer" *#
+
+$page.addBodyAttribute("class", "no-js")
+$page.addStyleSheet("$assetsContent.getURI('myCss/table.css')")
+## 选择下拉菜单的动作需要该文件
+$page.addScript("$assetsContent.getURI('myJs/jquery-1.7.2.js')")
+##$page.addScript("$assetsContent.getURI('js/amazeui.min.js')")
+$page.addScript("$assetsContent.getURI('myJs/ajaxfileupload.js')")
+$page.addScript("$assetsContent.getURI('myJs/algorithmNew.js')")
+
+<div class="myhero" style="background-image:">
+    <div class="admin-content" id="myContent" style="width: 100%">
+        <div class="am-cf am-padding" style="text-align: center"></div>
+        <div class="am-g am-u-sm-12" style="margin-top: -10px;padding: 30px; text-align: center; height: 1400px">
+            <form class="am-form" action="$!app1Link.setTarget("home.vm")"
+                  method="post" enctype="multipart/form-data">
+##              防csrf攻击
+                $csrfToken.hiddenField
+                #set ($group = $form.insertAlgorithm.defaultInstance)
+##              表单提交到insertAlgorithmAction.java
+                <input type="hidden" name="action" value="insert_algorithm_action"/>
+                <input type="hidden" name="$!group.classId.key"
+                       value="$!group.classId.value"/>
+                <input type="hidden" name="$!group.className.key" value="$!group.className.value"/>
+##              后台根据这个值来判断是否是自定义类别,若为空就是已有类别
+                <input type="hidden" name="$!group.classDescrib.key" value="$!group.classDescrib.value"/>
+
+                <img src="$!assetsContent.getURI('i/algorithmInfo/bear.png')"
+                     style="margin-top: 20px; width: 100px; transform: rotate(350deg);
+                     position: absolute; top: 100px; left: 147px">
+
+##              算法名字
+                <div class="transparentTap"
+                     style="margin: 30px;border-color:transparent;transform: rotate(350deg);
+                     position: absolute; top: 230px; left: 100px">
+                    <div class="algorithmNewContent">
+                        <textarea id="algorName" name="$!group.algorName.key"
+                                  value="$!group.algorName.value" class="am-form-field"
+                                  rows="2" cols="13"
+                                  placeholder="type algorithm name..."></textarea>
+                    </div>
+                    <img src="$!assetsContent.getURI('i/algorithmInfo/algorName.png')"
+                         style="margin-top: 20px">
+                    <div class="algorithmNewContent" style="font-size: larger; color: #00b3ee; margin-top: 13px">
+                        step one
+                    </div>
+                </div>
+
+                <img src="$!assetsContent.getURI('i/algorithmInfo/one_two.png')"
+                     style="width: 110px; position: absolute; top: 170px; left: 325px">
+
+##              算法类别
+                <button class="transparentTap"
+                        type="button"
+                        style="margin: -100px 30px 30px;
+                        border-color:transparent;
+                        transform: rotate(355deg);
+                        position: absolute; top: 140px; left: 420px"
+                        data-am-modal="{target: '#classifer-actions'}">
+                    <div class="algorithmNewContent" style="color: red; margin-top: 0px">
+                        select classifer
+                    </div>
+                    <img src="$!assetsContent.getURI('i/algorithmInfo/classifer.png')"
+                         style="margin-top: 36px">
+                    <div class="algorithmNewContent" style="font-size: larger; color: #00b3ee; margin-top: 13px">
+                        step two
+                    </div>
+                </button>
+
+                <img src="$!assetsContent.getURI('i/algorithmInfo/two_three.png')"
+                     style="width: 90px; position: absolute; top: 130px; left: 667px">
+
+
+##              算法命令
+                <div class="transparentTap"
+                     style="margin: 0 20px 20px;
+                            border-color:transparent;
+                            transform: rotate(3deg);
+                            position: absolute; top: 40px; left: 755px">
+                    <div class="algorithmNewContent">
+                        <textarea id="algorCommand" name="$!group.algorCommand.key"
+                                  value="$!group.algorCommand.value" class="am-form-field"
+                                  rows="2" cols="13"
+                                  placeholder="type algorithm command..."></textarea>
+                    </div>
+                    <img src="$!assetsContent.getURI('i/algorithmInfo/command.png')"
+                         style="margin-top: 20px">
+                    <div class="algorithmNewContent" style="font-size: larger; color: #00b3ee;  margin-top: 13px">
+                        step three
+                    </div>
+                </div>
+
+                <img src="$!assetsContent.getURI('i/algorithmInfo/three_four.png')"
+                     style="width: 240px; position: absolute; top: 130px; left: 990px">
+
+##              算法简介
+                <div class="transparentTapBig"
+                     style="margin: 20px;border-color:transparent; transform: rotate(10deg); height: 430px;
+                     position: absolute; top: 260px; left: 1000px">
+                    <div class="algorithmNewContent">
+                        <div class="algorithmNewContent">
+                        <textarea id="algorDescrib" name="$!group.algorDescrib.key"
+                                  value="$!group.algorDescrib.value" class="am-form-field"
+                                  rows="12" cols="39"
+                                  placeholder="type brief introduction..."
+                                  style="margin-left: -10px"></textarea>
+                        </div>
+                    </div>
+                    <img src="$!assetsContent.getURI('i/algorithmInfo/simpleinfo.png')"
+                         style="margin-top: 20px; margin-left: 300px">
+                    <div class="algorithmNewContent" style="font-size: larger; color: #00b3ee; margin-top: 13px; margin-left: 330px">
+                        step four
+                    </div>
+                </div>
+                <img src="$!assetsContent.getURI('i/algorithmInfo/four_five.png')"
+                     style="width: 210px; position: absolute; top: 680px; left: 990px">
+##              算法注意事项
+                <div class="transparentTapBig"
+                     style="margin: 20px;border-color:transparent; height: 430px;
+                            transform: rotate(350deg);
+                            position: absolute; top: 830px; left: 490px">
+                    <div class="algorithmNewContent">
+                        <div class="algorithmNewContent">
+                        <textarea id="algorCareful" name="$!group.algorCareful.key"
+                                  value="$!group.algorCareful.value" class="am-form-field"
+                                  rows="12" cols="39"
+                                  placeholder="type important information..."
+                                  style="margin-left: -10px"></textarea>
+                        </div>
+                    </div>
+                    <img src="$!assetsContent.getURI('i/algorithmInfo/careful.png')"
+                         style="margin-top: 20px; margin-left: 300px">
+                    <div class="algorithmNewContent" style="font-size: larger; color: #00b3ee; margin-top: 13px; margin-left: 350px">
+                        step five
+                    </div>
+                </div>
+
+                <img src="$!assetsContent.getURI('i/algorithmInfo/five_final.png')"
+                     style="width: 270px; position: absolute; top: 660px; left: 260px">
+##              上传jar包
+                <div class="transparentTap"
+                     style="margin: 0 20px 20px;
+                            border-color:transparent;
+                            width: 300px; height: 400px;
+                            transform: rotate(340deg);
+                            position: absolute; top: 390px; left: 510px">
+                    <div class="algorithmNewContent" style="margin-left: 0px; margin-top: 38px">
+                        <div class="am-form-group am-form-file" style="margin-bottom: 0px;">
+                            <input id="inputfile" type="file" accept=".jar" multiple="multiple"
+                                   name="inputfile" enctype="multipart/form-data"/>
+                            <input type="button" class="am-btn am-btn-secondary am-btn-block transparentDivBlue"
+                                   style="margin-top: 1px" value="select jar">
+                        </div>
+                        <button id="checkfile"
+                                class="am-btn am-btn-warning am-btn-block am-disabled transparentDivOrange"
+                                data-am-offcanvas="{target: '#doc-oc-1', effect: 'push'}"
+                                style="margin-top: 1px;" value="没有jar包">
+                            no jar
+                        </button>
+                        <input type="submit" id="uploadfilebtn"
+                               class="am-btn am-btn-block am-disabled am-btn-danger transparentDiv"
+                               style="margin-top: 1px;"
+                               name="event_submit_do_insert_algorithm" value="submit algorithm" />
+                    </div>
+                    <img src="$!assetsContent.getURI('i/algorithmInfo/file.png')"
+                         style="margin-top: 33px; margin-left: 105px">
+                    <div class="algorithmNewContent" style="font-size: larger; color: #00b3ee;  margin-top: 18px; margin-left: 165px">
+                        step six
+                    </div>
+                </div>
+            </form>
+        </div>
+
+##      popOver  当用户点击自定义类别时  弹出该窗口  供用户填写新的类别
+        <div class="theme-popover" id="popOver">
+            <div class="am-margin">
+                <fieldset class="am-form-set" style="width: 95%; margin: 30px 10px 10px; font-family: 'Syncopate';box-shadow: 0px 0px 0px 0px rgba(90, 90, 90, .1);">
+                    <div class="am-input-group" style="margin-top: -1px;">
+                        <span class="am-input-group-label" style="background-color: rgba(62, 164, 56,.4); color: #ffffff">
+                            <i class="am-icon-book am-icon-fw"></i> &nbsp;New classifer
+                        </span>
+                    </div>
+                    <div class="am-input-group" >
+                        <span class="am-input-group-label">
+                            <i class="am-icon-book am-icon-fw"></i> &nbsp;名称
+                        </span>
+                        <input style="font-size: smaller" type="text" name="customClassName" class="am-form-field" placeholder="type name in English..." />
+                    </div>
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">
+                            <i class="am-icon-file-text am-icon-fw"></i> &nbsp;简介
+                        </span>
+                        <textarea class="am-form-field" name="customClassDescrib" rows="8"
+                                  placeholder="type brief introduction in English..."
+                                  style=" font-size: smaller"></textarea>
+                    </div>
+                </fieldset>
+                <div class="am-cf" style="width: 95%; margin: 0px auto; font-family: 'Syncopate'">
+                    <button value="submit" id="sumbitclassbtn" name="" class="am-btn am-btn-primary am-btn-block transparentDivBlue" style="border-radius: 4px">submit</button>
+                    <button value="cancel" id="cancelclassbtn" class="am-btn am-btn-danger am-btn-block transparentDiv" style="border-radius: 4px">cancel</button>
+                </div>
+            </div>
+        </div>
+
+##      伴随popOver出现的阴影
+        <div class="theme-popover-mask"></div>
+
+##      模态框 放在这里才不会灰色
+        <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="my-modal-loading">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd" id="uploading">uploading</div>
+                <div class="am-modal-bd">
+                    <span class="am-icon-spinner am-icon-spin"></span>
+                </div>
+            </div>
+        </div>
+
+##      上传完成后弹出该视图
+        <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd"></div>
+                <div class="am-modal-bd" id="alertcontent">
+                </div>
+            </div>
+        </div>
+
+##      侧边栏视图
+        <div id="doc-oc-1" class="am-offcanvas">
+            <div class="am-offcanvas-bar">
+                <div class="am-offcanvas-content">
+                ##                    侧边栏内容
+                </div>
+            </div>
+        </div>
+
+##      选择类别的模态视图
+        <div class="am-modal-actions" id="classifer-actions">
+            <div class="am-modal-actions-group">
+                <ul class="am-list" style="font-family: 'Syncopate'">
+                    #foreach($classifer in $classifers)
+                        <li value="$!classifer.classId">
+                            <a href="javascript:void(0);" about="$classifer.classId">
+                                $!classifer.className
+                            </a>
+                        </li>
+                    #end
+                    <li value="0">
+                        <a href="javascript:void(0);" about="$classifer.classId">custom</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="am-modal-actions-group">
+                <button class="am-btn am-btn-secondary am-btn-block" style="font-family: 'Syncopate'" data-am-modal-close>cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

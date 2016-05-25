@@ -1,0 +1,47 @@
+#*
+Created by IntelliJ IDEA.
+User: jiangkunyou
+Date: 15/11/26
+Time: 下午7:10
+首页 展示所有算法列表
+*#
+
+#* @vtlvariable name="classifer" type="com.dlut.jky.app1.beans.Classifer" *#
+#* @vtlvariable name="user" type="com.dlut.jky.app1.beans.User" *#
+
+## 选择下拉菜单的动作需要该文件
+$page.addScript("$assetsContent.getURI('js/jquery1.11.1.min.js')")
+$page.addScript("$assetsContent.getURI('myJs/home.js')")
+$page.addBodyAttribute("class", "no-js")
+
+<div class="myhero">
+    <div class="admin-content" id="myContent" style="text-align: center">
+
+##      算法tap区
+        <div class="am-g am-u-sm-12" style="margin-top: 81px; margin-bottom: 120px">
+
+##          缺失数据填充
+            <button id="$!app1Link.setTarget('classiferDetail.vm').addQueryData('classId', 1)"
+                    class="transparentTap" style="margin: 20px;
+                    border-color:transparent; background-color: rgba(0, 0, 0, .3);">
+                <img src="$!assetsContent.getURI('i/classifer/tianchong2.png')">
+            </button>
+
+##          特征提取
+            <button id="$!app1Link.setTarget('classiferDetail.vm').addQueryData('classId', 2)"
+                    class="transparentTap" style="margin: 20px;
+                    border-color:transparent; background-color: rgba(251, 73, 72, .2);">
+                <img src="$!assetsContent.getURI('i/classifer/tezheng2.png')">
+            </button>
+
+##          决策分析
+            <button id="$!app1Link.setTarget('classiferDetail.vm').addQueryData('classId', 3)"
+                    class="transparentTap" style="margin: 20px;
+                    border-color:transparent; background-color: rgba(8, 150, 255, .2);">
+                <img src="$!assetsContent.getURI('i/classifer/juece2.png')">
+            </button>
+        </div>
+
+    </div>
+</div>
+

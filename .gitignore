@@ -1,0 +1,17 @@
+bin
+target
+.settings
+.project
+.classpath
+.svn
+
+*.iml
+/out
+/.idea/ant.xml
+/.idea/misc.xml
+/.idea/workspace.xml
+/.idea/modules.xml
+/.idea/compiler.xml
+/.idea/libraries/Maven*.xml
+/.idea/artifacts/*.xml
+/*.iws

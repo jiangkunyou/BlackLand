@@ -1,0 +1,4 @@
+<footer class="myfooter" style="font-family: 'Syncopate', cursive">
+    <p>@ Licensed under DLUT</p>
+##    <img src="$assetsContent.getURI('i/footText.png')" width="13%"
+</footer>

@@ -1,0 +1,8 @@
+<!--
+##  #if ($error.exception)
+##    $exceptionUtil.getStackTrace($error.exception)
+##  #end
+-->
+<div style="text-align: center">
+    <img src="$assetsContent.getURI('i/404.jpg')" style="width: 988px">
+</div>

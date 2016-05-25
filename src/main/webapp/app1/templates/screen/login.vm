@@ -1,0 +1,57 @@
+#*
+Created by IntelliJ IDEA.
+User: jiangkunyou
+Date: 15/10/26
+Time: 下午9:26
+登陆页面 test
+*#
+
+$page.addStyleSheet("$assetsContent.getURI('css/amazeui.min.css')")
+$page.addStyleSheet("$assetsContent.getURI('css/app.css')")
+$page.addStyleSheet("$assetsContent.getURI('myCss/login.css')")
+$page.addScript("$assetsContent.getURI('myJs/jquery-1.7.2.js')")
+$page.addScript("$assetsContent.getURI('myJs/login.js')")
+$page.addBodyAttribute("class", "no-js")
+
+<div class="hero">
+    <div class="hero-content">
+
+        <div class="header" style="padding-bottom: 10px">
+            <h1>
+                <img src="$assetsContent.getURI('i/niceSpark.png')" style="width: 30%">
+##                <div style="font-family: 'League Script', cursive; color: #ffffff; font-size: 100px">Welcome</div>
+            </h1>
+        </div>
+        <div class="am-g">
+            <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+                <div class="transparentDiv">
+                    <img src="$assetsContent.getURI('i/cloudandtext.png')" style="width: 80%">
+                </div>
+                <form class="am-form" action="$app1Link.setTarget("login.vm")" method="post">
+                    $csrfToken.hiddenField
+                    <input type="hidden" name="action" value="login_action"/>
+                    #set ($group = $form.login.defaultInstance)
+                    <fieldset class="am-form-set transparentDiv">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                            </span>
+                            <input type="text" id="userName" placeholder="你叫啥？" name="$group.userName.key" value="$!group.userName.value" />
+                        </div>
+                        <div class="am-input-group" style="margin-top: -0.5px">
+                            <span class="am-input-group-label">
+                                <i class="am-icon-lock am-icon-fw"></i>
+                            </span>
+                            <input type="password" id="password" placeholder="你的密码是？" name="$group.userPass.key" value="$!group.userPass.value" maxlength="32">
+                        </div>
+                    </fieldset>
+                    <div class="am-cf" style="font-family: 'Syncopate'">
+                        <input type="submit" value="log in" id="loginbtn" name="event_submit_do_validate_user" class="am-btn am-btn-primary am-btn-block transparentDiv">
+                        <input type="button" value="sign up" class="am-btn am-btn-danger am-btn-block transparentDiv" style="margin-top: 6px">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

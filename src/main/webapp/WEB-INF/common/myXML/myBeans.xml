@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+
+
+       <!-- 单例初始化 -->
+       <bean id="daoFactory" class="com.dlut.jky.app1.dao.factories.DaoFactory" factory-method="getInstance"></bean>
+       <bean id="fileUploadManager" class="com.dlut.jky.app1.utils.FileUploadManager" factory-method="getInstance"></bean>
+       <bean id="linuxManager" class="com.dlut.jky.app1.utils.LinuxManager" factory-method="getInstance"></bean>
+
+       <!-- 自定义的类 -->
+       <bean id="userService" class="com.dlut.jky.app1.Services.UserService"></bean>
+       <bean id="algorithmService" class="com.dlut.jky.app1.Services.AlgorithmService"></bean>
+       <bean id="classiferService" class="com.dlut.jky.app1.Services.ClassiferService"></bean>
+
+</beans>

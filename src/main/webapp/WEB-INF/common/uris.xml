@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:services="http://www.alibaba.com/schema/services"
+             xmlns:uris="http://www.alibaba.com/schema/services/uris"
+             xsi:schemaLocation="http://www.alibaba.com/schema/services http://localhost:8080/schema/services.xsd
+                 http://www.alibaba.com/schema/services/uris http://localhost:8080/schema/services-uris.xsd
+                 http://www.springframework.org/schema/beans http://localhost:8080/schema/www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <services:uris>
+        <uris:uri id="server" requestAware="true" />
+
+        <uris:turbine-uri id="app1Link" exposed="true" extends="server">
+            <componentPath>/</componentPath>
+        </uris:turbine-uri>
+        <uris:turbine-content-uri id="app1Content" exposed="true" extends="app1Link" />
+
+        <uris:turbine-uri id="assetsLink" exposed="true" extends="server">
+            <componentPath>/assets</componentPath>
+        </uris:turbine-uri>
+        <uris:turbine-content-uri id="assetsContent" exposed="true" extends="assetsLink" />
+
+        <uris:turbine-uri id="commonLink" exposed="true" extends="server">
+            <componentPath>/common</componentPath>
+        </uris:turbine-uri>
+        <!--<uris:turbine-content-uri id="assetsContent" exposed="true" extends="assetsLink" />-->
+        <!--<servlet-content-uri id="assetsContent" exposed="true" extends="server">-->
+            <!--<prefixPath>/assets</prefixPath>-->
+        <!--</servlet-content-uri>-->
+
+    </services:uris>
+
+</beans:beans>

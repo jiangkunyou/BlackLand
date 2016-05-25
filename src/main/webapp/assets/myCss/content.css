@@ -1,0 +1,417 @@
+
+#myContent {
+    margin: 15px auto;
+    width: 100%;
+    background-color: transparent;
+}
+
+#myTable {
+    margin: 0px 20px;
+    box-shadow: 0px 0px 30px 4px rgba(90, 90, 90, 0.5);
+}
+
+/* 设置fieldset中的图片背景透明化 */
+.am-input-group-label {
+    background-color: transparent;
+}
+
+.am-input-group .am-form-field {
+    background-color: transparent;
+}
+
+/* 设置fieldset整体样式 */
+.am-form-set {
+    width: 80%;
+    margin: auto auto;
+    box-shadow: 0px 0px 40px 4px rgba(90, 90, 90, 0.5);
+    background-color: transparent;
+}
+
+.myshadow {
+    box-shadow: 0px 0px 40px 4px rgba(90, 90, 90, 0.5);
+}
+
+/* 设置注意事项内容的样式 */
+#do-not-say-1 pre {
+    font-family: 'Syncopate';
+    width: 90%;
+    background-color: transparent;
+}
+
+.am-input-group input {
+    /*background-color: transparent;*/
+    font-family: 'Syncopate';
+}
+
+.am-input-group button {
+    font-family: 'Syncopate';
+}
+.am-input-group textarea {
+    font-family: 'Syncopate';
+    font-size: small;
+}
+.am-input-group span {
+    font-family: 'Syncopate';
+    font-size: small;
+}
+
+/* 这个transprent是设置注意事项下面的内容内边距透明 */
+.am-panel.am-panel-default {
+    background-color: transparent; border-color: transparent; box-shadow: 0px 0px 40px 4px rgba(90, 90, 90, 0.5);
+}
+
+/*.am-form-set .am-input-group input {*/
+    /*background-color: transparent;*/
+/*}*/
+
+/* tab导航的文字样式 */
+.am-tabs-nav li a {
+    font-family: 'Syncopate';
+    color: #000
+}
+
+/* 注意事项标题样式 */
+.am-panel .am-panel-hd {
+    background-color: rgba(255 , 255, 255, 0.8);
+    color: #b0b0b0;
+    border-color: transparent;
+    border-width: 0px
+}
+
+/*  */
+.am-tabs-bd {
+    border-color: transparent;
+}
+
+
+.transparentDiv {
+    /*border-radius: 4px;*/
+    border-color: transparent;
+    background-color: rgba(251, 73, 72,.2);
+    display: inline-block;
+    padding: 10px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    font-family: 'Syncopate';
+}
+.transparentDivGreen {
+    /*border-radius: 4px;*/
+    border-color: transparent;
+    background-color: rgba(62, 164, 56,.2);
+    display: inline-block;
+    padding: 10px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    font-family: 'Syncopate';
+}
+.transparentDivBlue {
+    /*border-radius: 4px;*/
+    border-color: transparent;
+    background-color: rgba(8, 150, 255,.2);
+    /*display: inline-block;*/
+    padding: 10px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    font-family: 'Syncopate';
+}
+.transparentDivOrange {
+    /*border-radius: 4px;*/
+    border-color: transparent;
+    background-color: rgba(255, 255, 0, .3);
+    display: inline-block;
+    padding: 10px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    font-family: 'Syncopate';
+}
+.transparentDivGrey {
+    /*border-radius: 4px;*/
+    border-color: transparent;
+    color: #ffffff;
+    background-color: rgba(24, 24, 24,.2);
+    display: inline-block;
+    padding: 10px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    font-family: 'Syncopate';
+}
+
+
+/* 视频样式 */
+.myhero {
+    background-image: url("../i/background/justin-jky-1920_new_2.jpg");
+    /*background-color: #000;*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /*color: #fff;*/
+    width: 100%;
+    /* 调整总容器的高度,防止里面的东西下沿超过总容器下沿 */
+    /*height: 100vh;*/
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+}
+
+.hero-content {
+    width: 100%;
+    text-align: center;
+    align-self: center;
+}
+
+.transparentTap {
+    border-radius: 4px;
+    background-color: rgba(255,255,255,.8);
+    display: inline-block;
+    padding: 13px;
+    color: #000;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    width: 200px;
+    height: 280px;
+    box-shadow: 0px 0px 40px 4px rgba(90, 90, 90, 0.5);
+}
+.transparentTap:hover {
+    position: relative;
+    /*border-top: 10px solid; border-radius: 2px;*/
+    box-shadow: 0px 0px 50px 4px rgba(130 ,0 ,180, 0.5);
+}
+.transparentTapBig {
+    border-radius: 4px;
+    background-color: rgba(255,255,255,.8);
+    display: inline-block;
+    padding: 13px;
+    color: #000;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    width: 500px;
+    height: 400px;
+    box-shadow: 0px 0px 40px 4px rgba(90, 90, 90, 0.5);
+}
+.transparentTapBig:hover {
+    position: relative;
+    box-shadow: 0px 0px 50px 4px rgba(130 ,0 ,180, 0.5);
+}
+
+.transparentGreyButton {
+
+    border-radius: 95px;
+    background-color: rgba(0, 0, 0, .3);
+    display: inline-block;
+    padding: 13px;
+    color: #000;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    width: 190px;
+    height: 190px;
+    box-shadow: 0px 0px 40px 4px rgba(70, 70, 70, 0.5);
+    margin: 20px;
+    border-color:transparent;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 600%;
+    color: #ffffff;
+    /*font-size: larger;*/
+}
+
+.transparentGreyButton:hover {
+    position: relative;
+    /*border-top: 10px solid; border-radius: 2px;*/
+    /*box-shadow: 0px 0px 50px 4px rgba(130 ,0 ,180, 0.5);*/
+    transform: scale(0.9);
+}
+
+.submitInputStyle {
+    margin: 30px;
+    color: transparent;
+    border-color:transparent;
+    background-color: rgba(62, 164, 56,.2);
+    transform: rotate(5deg);
+    height: 120px; width: 170px;
+    font-family: 'Syncopate';
+    background-repeat: no-repeat
+}
+
+.textareaStyle {
+    width: 90%;
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 0px;
+    font-family: 'Syncopate';
+    font-size: medium;
+    color: #404040;
+    margin-top: 20px;
+}
+
+.topicTitleStyle {
+    font-family: 'Syncopate';
+    color: #ffffff;
+    margin-top: -80px;
+    margin-left: 420px;
+    margin-bottom: 62px
+}
+.fileTitleStyle {
+    font-family: 'Syncopate';
+    color: #000000;
+    margin-top: 10px;
+    margin-left: -335px;
+    margin-bottom: 10px
+}
+
+/* 新建算法时,需要填写的内容的样式 */
+.algorithmNewContent {
+    font-family: 'Syncopate';
+    font-size: small;
+    /*color: #505050;*/
+    text-transform: uppercase;
+    text-align: left;
+    margin-left: 10px;margin-top: 20px;
+}
+
+/* 新建算法,需要填写部分的textarea样式 */
+.algorithmNewContent textarea {
+    background-color: transparent;
+    border-width: 0;
+    font-size: small;
+    margin-left: -5px;
+}
+
+/* placeholder样式调整 */
+.algorithmNewContent textarea::-webkit-input-placeholder {
+    color: #808080;
+}
+/* firefox 19+ */
+.algorithmNewContent textarea::-moz-placeholder {
+    color: #808080;
+}
+/* ie */
+.algorithmNewContent textarea:-ms-input-placeholder {
+    color: #808080;
+}
+
+/* 视频导航部分的样式 */
+#hero {
+    height: 26vh;
+    position: relative;
+    display: block;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden
+}
+
+#hero #hero-carousel-images {
+    width: 100%;
+    height: 100%;
+    position: static
+}
+
+#hero #hero-carousel-images .hero-images {
+    list-style: none
+}
+
+#hero #hero-carousel-images .hero-image {
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-transition: opacity 1s cubic-bezier(.33,0,.2,1),z-index 0ms linear 1s;
+    -moz-transition: opacity 1s cubic-bezier(.33,0,.2,1),z-index 0ms linear 1s;
+    -ms-transition: opacity 1s cubic-bezier(.33,0,.2,1),z-index 0ms linear 1s;
+    -o-transition: opacity 1s cubic-bezier(.33,0,.2,1),z-index 0ms linear 1s;
+    transition: opacity 1s cubic-bezier(.33,0,.2,1),z-index 0ms linear 1s
+}
+
+#hero #hero-carousel-images .hero-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    height: 100%;
+    width: auto
+}
+
+#hero #hero-carousel-images .hero-image.will-be--active {
+    z-index: 9;
+    opacity: 1;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none
+}
+
+#hero #hero-carousel-images .hero-image.will-be--active.is--active {
+    z-index: 9;
+    opacity: 1
+}
+
+#hero #hero-carousel-images .hero-image.is--active {
+    z-index: 10;
+    opacity: 1
+}
+
+#hero #hero-carousel-images .background-video .scrim {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: rgba(0,0,0,.65);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0
+}
+
+#hero #hero-carousel-images .background-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: inline-block
+}
+
+#hero #hero-carousel-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    font-family: 'League Script', cursive;
+    font-size: 650%;
+    color: #a0a0a0;
+    margin-top: 35px;
+    margin-left: 150px
+}
+

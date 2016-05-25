@@ -1,0 +1,57 @@
+#* @vtlvariable name="algorithm" type="com.dlut.jky.app1.beans.Algorithm" *#
+
+<header id="amz-header" style="width: 1650px">
+    <div class="amz-container am-cf">
+        <h1>
+            <a href="$app1Link.setTarget('home.vm').addQueryData('userId', $user.userId)">
+        </h1>
+        <nav>
+            <ul class="amz-header-nav am-collapse am-topbar-left" style="font-family: 'Syncopate', cursive;text-transform: uppercase;">
+                <li value="home"><a href="$app1Link.setTarget('home.vm').addQueryData('userId', $user.userId)" style=>Home</a></li>
+##                <li value="algorithm_new"><a href="$app1Link.setTarget('algorithmNew.vm')">New+</a></li>
+##                <li value="talk_to_us"><a href="$app1Link.setTarget('talkToUs.vm')">Message</a></li>
+##                <li value="about_us"><a href="$app1Link.setTarget('AboutUs.vm')">About</a></li>
+                <li value="user_info"><a href="$app1Link.setTarget('UserInfo.vm')">Profile</a></li>
+                <li><a href="$app1Link.setTarget('login.vm')">Exit</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+<span id="hero" style="width: 1650px">
+  <div id="hero-carousel-images" style="background-color: #9d8b79">
+      <div class="hero-image background-video is--active" style="background-image:url('$!assetsContent.getURI("i/background/zise.jpg")'); background-color: rgb(157, 139, 121);">
+          <img data-src="$!assetsContent.getURI('i/pages_product_poster.png')"
+               data-image="$!assetsContent.getURI('i/pages_product_poster.png')"
+               data-image-dimensions="2560x1440"
+               data-image-focal-point="0.5,0.5"
+               alt="pages_product_poster.png"
+               data-load="false"
+               src="$!assetsContent.getURI('i/pages_product_poster.png')"
+               style="display: none;">
+##          <video autoplay="true" autobuffer="true" loop="true" preload="true"
+##                 poster="$!assetsContent.getURI('i/pages_product_poster.png')">
+##              <source src="$!assetsContent.getURI('video/pages_product.webm')" type="video/webm">
+##              <source src="$!assetsContent.getURI('video/pages_product.mp4')" type="video/quicktime">
+##          </video>
+      ##          视频上面的黑色半透明阴影
+          <div class="scrim"></div>
+      </div>
+  </div>
+
+## 视频导航栏上面的文字
+  <div id="hero-carousel-content">
+      #set($servletName = $!rundata.getRequest().getServletPath())
+      #if($servletName == "/algorithm_detail.htm")
+          $!algorithm.algorName
+      #elseif($servletName == "/algorithm_new.htm")
+          New algorithm
+      #elseif($servletName == "/talk_to_us.htm")
+          They said
+      #elseif($servletName == "/about_us.htm")
+          Hello!
+      #elseif($servletName == "/profile.htm")
+          It's my secret!
+      #end
+  </div>
+</span>

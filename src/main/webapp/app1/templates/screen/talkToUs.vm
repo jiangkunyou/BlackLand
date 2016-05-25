@@ -1,0 +1,124 @@
+#*
+Created by IntelliJ IDEA.
+User: jiangkunyou
+Date: 15/12/66
+Time: 下午7:10
+留言板
+*#
+
+#* @vtlvariable name="message" type="com.dlut.jky.app1.beans.Message" *#
+#* @vtlvariable name="myPage" type="com.dlut.jky.app1.beans.Page" *#
+
+$page.addScript("$assetsContent.getURI('js/jquery1.11.1.min.js')")
+$page.addScript("$assetsContent.getURI('myJs/jquery-sinaEmotion-2.1.0.min.js')")
+##$page.addScript("$assetsContent.getURI('myJs/embed.js')")
+$page.addScript("$assetsContent.getURI('myJs/talkToUs.js')")
+$page.addStyleSheet("$assetsContent.getURI('css/embed.default.css')")
+$page.addStyleSheet("$assetsContent.getURI('myCss/talkToUs.css')")
+$page.addBodyAttribute("class", "no-js")
+
+<div class="myhero">
+    <div class="am-container" id="myContent">
+        <div class="am-cf am-padding"></div>
+
+        <div class="am-panel am-panel-default am-margin-horizontal" style="margin-top: 8px; width: auto">
+            <div style="font-family: 'Syncopate'; color: #000" class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-3'}">
+                recent message
+                <span
+                    class="am-icon-chevron-down am-fr">
+                </span>
+            </div>
+            <div class="am-panel-bd am-cf am-collapse am-in" id="collapse-panel-3" style="margin: 10px auto 15px; width: 90%">
+                <ul class="am-comments-list admin-content-comment">
+                    #foreach($message in $myPage.items)
+                        <li class="am-comment">
+                            <a href="#">
+                                <img src="$!assetsContent.getURI('i/defaultFace.png')" alt="" class="am-comment-avatar" width="48" height="48">
+                            </a>
+                            <div class="am-comment-main">
+                                <header class="am-comment-hd" style="background-color: rgba(150, 150, 150, .1)">
+                                    <div class="am-comment-meta" style="font-family: 'Syncopate'; color: #000">
+##                                        <a href="#" class="am-comment-author" style="color: #000">
+                                            $!message.userName
+##                                        </a>
+                                        &nbsp;评论于&nbsp;
+                                        <time>$!message.messageDate
+                                        </time>
+                                    </div>
+                                </header>
+                                <div class="am-comment-bd result" style="font-family: 'Syncopate'">
+                                    <p class="resultface">
+                                        $!message.messageCont
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    #end
+                </ul>
+                <ul class="am-pagination am-fr admin-content-pagination">
+                    <li><a href="$!app1Link.setTarget('talkToUs.vm').addQueryData('pageNo', $myPage.prevPageNo)"><</a></li>
+                    #set($range = [1..$myPage.totalPageNo])
+                    #foreach($i in $range)
+                        #if($myPage.pageNo == $i)
+                            <li class="am-active">
+                                <a href="$!app1Link.setTarget('talkToUs.vm').addQueryData('pageNo', $i)">$i</a>
+                            </li>
+                        #else
+                            <li>
+                                <a href="$!app1Link.setTarget('talkToUs.vm').addQueryData('pageNo', $i)">$i</a>
+                            </li>
+                        #end
+                    #end
+                    <li><a href="$!app1Link.setTarget('talkToUs.vm').addQueryData('pageNo', $myPage.nextPageNo)">></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="am-g" style="text-align: center; margin-bottom: 40px">
+            <div class="am-comment" style="margin:auto auto;width: 93%;box-shadow: 0px 0px 40px 4px rgba(90, 90, 90, 0.5);">
+                <div class="am-container" style="padding: 20px">
+                    <div class="am-cf am-padding" style="margin-top: -10px">
+                        <div class="am-fl am-cf" style="font-family: 'Syncopate'">
+                            <strong class="am-text-danger am-text-lg">I want to say</strong>
+                        </div>
+                    </div>
+
+                    <div class="ds-thread" id="ds-thread" style="margin:0 auto 20px; width: 96%">
+                        <div id="ds-reset">
+                            <div class="ds-replybox">
+                                <a class="ds-avatar" href="javascript:void(0);" onclick="return false">
+                                    <img src="$!assetsContent.getURI('i/defaultFace.png')" alt="">
+                                </a>
+                                <form method="post" action="$!app1Link.setTarget('talkToUs.vm')" style=" margin-left: 15px">
+
+    ##                              防csrf攻击
+                                    $csrfToken.hiddenField
+                                    #set ($group = $form.message.defaultInstance)
+                                ##                  表单提交到insertAlgorithmAction.java
+                                    <input type="hidden" name="action" value="insert_message_action"/>
+                                    <div class="ds-textarea-wrapper ds-rounded-top">
+                                        <textarea style="font-family: 'Syncopate'" name="$group.messageCont.key" value="$group.messageCont.value" title="Ctrl+Enter快捷提交" placeholder="说破无毒…"></textarea>
+                                        <pre class="ds-hidden-text"></pre>
+                                    </div>
+                                    <div class="ds-post-toolbar">
+                                        <div class="ds-post-options ds-gradient-bg">
+                                            <span class="ds-sync"></span>
+                                        </div>
+    ##                                    注意这里必须用input才能提交到action
+                                        <input class="ds-post-button" style="width: 100px;font-family: 'Syncopate'" type="submit" name="event_submit_do_insert_message" value="submit" />
+                                        <div class="ds-toolbar-buttons">
+                                            <a class="ds-toolbar-button ds-add-emote" title="插入表情" id="face"></a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

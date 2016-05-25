@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:services="http://www.alibaba.com/schema/services"
+             xmlns:fm-validators="http://www.alibaba.com/schema/services/form/validators"
+             xsi:schemaLocation="http://www.alibaba.com/schema/services http://localhost:8080/schema/services.xsd
+
+                 http://www.alibaba.com/schema/services/form/validators http://localhost:8080/schema/services-form-validators.xsd
+                 http://www.springframework.org/schema/beans http://localhost:8080/schema/www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <services:form postOnlyByDefault="true">
+        <!--
+          - ===============================================
+          - 用来检查csrf token。
+          - ===============================================
+         -->
+        <group name="csrfCheck">
+            <field name="csrfToken">
+                <fm-validators:csrf-validator>
+                    <message>提交的数据已过期</message>
+                </fm-validators:csrf-validator>
+            </field>
+        </group>
+        <!--
+          - ===============================================
+          - Simple form
+          - ===============================================
+         -->
+        <!--<group name="register" extends="csrfCheck">-->
+            <!--<field name="name" displayName="你的名字">-->
+                <!--<fm-validators:required-validator>-->
+                    <!--<message>必须填写 ${displayName}</message>-->
+                <!--</fm-validators:required-validator>-->
+            <!--</field>-->
+        <!--</group>-->
+        <!-- 登陆页面的表单 -->
+        <group name="login" extends="csrfCheck">
+            <field name="userName" displayName="用户">
+                <!--<fm-validators:required-validator>-->
+                    <!--<message>必须填写 ${displayName}名</message>-->
+                <!--</fm-validators:required-validator>-->
+            </field>
+            <field name="userPass" displayName="密码">
+                <!--<fm-validators:required-validator>-->
+                    <!--<message>必须填写 ${displayName}</message>-->
+                <!--</fm-validators:required-validator>-->
+            </field>
+        </group>
+
+        <!-- 创建算法页面的表单 -->
+        <group name="insertAlgorithm" extends="csrfCheck">
+            <field name="classId" displayName="类别id" defaultValue="0"></field>
+            <field name="className" displayName="类别名字"></field>
+            <field name="classDescrib" displayName="类别简介"></field>
+            <field name="algorName" displayName="算法名字"></field>
+            <field name="algorCommand" displayName="算法命令"></field>
+            <field name="algorCareful" displayName="注意事项"></field>
+            <field name="algorDescrib" displayName="算法描述"></field>
+        </group>
+
+        <!-- 发表留言表单 -->
+        <group name="message" extends="csrfCheck">
+            <field name="messageCont" displayName="评论内容"></field>
+        </group>
+
+        <!-- 修改个人信息的表单 -->
+        <group name="userInfo" extends="csrfCheck">
+            <field name="userId" displayName="用户id"></field>
+            <field name="userPass" displayName="用户密码"></field>
+            <field name="userName" displayName="用户姓名"></field>
+            <field name="userEmail" displayName="邮箱"></field>
+            <field name="userCompany" displayName="公司"></field>
+            <field name="userPhoneNumber" displayName="注意事项"></field>
+            <field name="isSuper" displayName="权限"></field>
+        </group>
+
+
+    </services:form>
+
+</beans:beans>

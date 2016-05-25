@@ -1,0 +1,154 @@
+#*
+Created by IntelliJ IDEA.
+User: jiangkunyou
+Date: 15/12/15
+算法运行界面,包括日志和导出文件
+*#
+
+#* @vtlvariable name="algorithm" type="com.dlut.jky.app1.beans.Algorithm" *#
+
+$page.addBodyAttribute("class", "no-js")
+$page.addScript("$assetsContent.getURI('myJs/jquery-1.7.2.js')")
+## ECharts单文件引入
+$page.addScript("http://echarts.baidu.com/build/dist/echarts.js")
+$page.addScript("$assetsContent.getURI('myJs/runAlgorithm.js')")
+$page.addStyleSheet("$assetsContent.getURI('myCss/runAlgorithm.css')")
+
+
+<div class="myhero">
+    <div class="admin-content" id="myContent" style="width: 100%; text-align: center; padding: 30px">
+        <div class="am-tabs" id="myTable" data-am-tabs>
+            <ul class="am-tabs-nav am-nav am-nav-tabs" style="background-color: transparent" id="tabNav">
+                <li class="am-active"><a href="#tab1">Runtime log</a></li>
+##              可视化tab,算法运行成功后,才能去掉am-hide属性
+                <li class="am-hide"><a href="#tab2" id="visualization">Visualization</a></li>
+##                <li class=""><a href="#tab2" id="visualization">Visualization</a></li>
+            </ul>
+
+            <div class="am-tabs-bd">
+##              tab1内容
+                <div class="am-tab-panel am-in am-active" id="tab1" style="text-align: center; padding: 50px">
+
+                    <div class="am-g am-u-sm-12" style="padding: 0 0 20px; text-align: center">
+            ##          记录算法id,方便后面js操作拿到算法id
+                        <input type="hidden" id="algorId" value="$!algorithm.algorId">
+            ##          日志
+                        <div class="transparentTapBig"
+                             style="border-color:transparent; width: 800px; height: 600px;">
+                            <div class="algorithmNewContent">
+                                <div class="algorithmNewContent">
+<textarea id="myLog"
+          class="am-form-field"
+          rows="25" cols="39"
+          style="margin-left: -10px; margin-top: 36px"></textarea>
+                                </div>
+                            </div>
+                            <img src="$!assetsContent.getURI('i/log.png')"
+                                 style="margin-top: 20px; margin-left: 600px">
+                        </div>
+                    </div>
+          ##        最下面的两个按钮
+                    <div class="transparentTap" style="width: 800px; height: 110px">
+                        <input type="button" class="am-btn am-btn-default am-u-sm-6 am-btn-block transparentDivGrey"
+                               style="margin: 0px"
+                               value="cancel run"/>
+                        <a href="$!app1Link.setTarget("fileDownload.do")">
+                            <input id="exportFile" type="button"
+                                   class="am-btn am-btn-success am-u-sm-6 am-btn-block transparentDivGreen am-disabled"
+                                   style="margin: 0px;"
+                                   value="Export Output File"/>
+                        </a>
+
+                    </div>
+
+                </div>
+
+##              tab2内容
+                <div class="am-tab-panel am-fade am-in" id="tab2" style="text-align: center; padding: 20px">
+
+                ##  LDA算法的主题关键字字符云
+                    <div class="transparentTapBig"
+                         style="border-color:transparent; width: 560px; height: 530px;
+                         background-color: rgba(27, 27, 27, .9); margin: 25px;
+                         transform: rotate(357deg)">
+                        <img src="$!assetsContent.getURI('i/algorithmInfo/topicKeyword.png')"
+                             style="margin-left: -210px; margin-top: 15px; width: 310px;">
+                        <div id="topicTitle" class="topicTitleStyle">Topic 1</div>
+                        <div id="charCloud" style="height: 63%; width: 100%; margin-top: -10px"></div>
+##                      点击显示上一个topic的关键词
+                        <input type="button" id="previous"
+                               class="am-btn am-btn-block am-disabled am-btn-danger transparentDiv"
+                               style="margin-top: 10px;"
+                               value="Previous" />
+##                      点击显示下一个topic的关键词
+                        <input type="button" id="next"
+                               class="am-btn am-btn-block am-btn-primary transparentDivBlue"
+                               style="margin-top: 1px;"
+                               value="Next" />
+
+                    </div>
+
+                ##  LDA算法的文章属于各个主题的概率饼图
+                    <div class="transparentTapBig"
+                         style="border-color:transparent; width: 420px; height: 560px;
+                         margin: 25px;transform: rotate(3deg)">
+                        <img src="$!assetsContent.getURI('i/algorithmInfo/pie.png')"
+                             style="margin-left: 110px; margin-top: 10px;width: 76%">
+##                        <div id="fileTopic" class="fileTitleStyle">Topic 1</div>
+                        <div id="pie" style="height: 63%; width: 98%; margin-top: 25px"></div>
+##                      点击显示上一个topic的关键词
+                        <input type="text" id="fileName"
+                               class="am-btn am-btn-block am-btn-primary transparentDivBlue"
+                               style="margin-top: 33px;"
+                               placeholder="type in fileName..."
+                               value="$!fileName" />
+##                      点击显示下一个topic的关键词
+##                        <input type="button" id="search"
+##                               class="am-btn am-btn-block am-btn-primary transparentDivBlue"
+##                               style="margin-top: 1px;"
+##                               value="Search" />
+
+                    </div>
+                ##  LDA算法的各个主题包含文章数饼图
+                    <div class="transparentTapBig"
+                         style="border-color:transparent; width: 420px; height: 510px;
+                         margin: 25px">
+                        <img src="$!assetsContent.getURI('i/algorithmInfo/normalPie.png')"
+                             style="margin-left: 110px; margin-top: 10px;width: 76%">
+##                        <div id="fileTopic" class="fileTitleStyle">Topic 1</div>
+                        <div id="normalPie" style="height: 68%; width: 98%; margin-top: 25px"></div>
+                    </div>
+
+                ##  LDA算法的主题关键字字符云
+                    <div class="transparentTapBig"
+                         style="border-color:transparent; width: 500px; height: 455px;
+                          margin: 30px;
+                         transform: rotate(3deg)">
+                        <img src="$!assetsContent.getURI('i/algorithmInfo/fileKeyword.png')"
+                             style="margin-left: 150px; margin-top: 15px; width: 310px;">
+                        <div id="fileWordCloud" style="font-family: 'Syncopate'"></div>
+##                      点击显示输入file的关键词
+                        <input type="text" id="fileName_2"
+                               class="am-btn am-btn-block am-btn-danger transparentDiv"
+                               style="margin-top: 10px;"
+                               placeholder="type in fileName..."
+                               value="$!fileName" />
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+##      更新完成后 弹出的提示信息框
+    <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd"></div>
+            <div class="am-modal-bd" id="alertcontent" style="font-family: 'Syncopate';">
+            </div>
+        </div>
+    </div>
+</div>

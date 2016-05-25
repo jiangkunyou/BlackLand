@@ -1,0 +1,188 @@
+#*
+Created by IntelliJ IDEA.
+User: jiangkunyou
+Date: 15/12/12
+个人中心页面
+*#
+
+#* @vtlvariable name="user" type="com.dlut.jky.app1.beans.User" *#
+
+$page.addBodyAttribute("class", "no-js")
+$page.addScript("$assetsContent.getURI('myJs/jquery-1.7.2.js')")
+$page.addScript("$assetsContent.getURI('myJs/userInfo.js')")
+
+<div class="myhero" style="">
+    <div class="admin-content" id="myContent" style="width: 90%; margin-bottom: 65px">
+        <div class="am-g am-u-sm-12" style="padding: 30px; text-align: center;">
+            <form class="am-form" action="$!app1Link.setTarget('userInfo.vm')" method="post" enctype="multipart/form-data">
+##              防csrf攻击
+                $csrfToken.hiddenField
+                #set ($group = $form.userInfo.defaultInstance)
+##              表单提交到UserInfoAction.java
+                <input type="hidden" name="action" value="user_info_action"/>
+
+##              用户密码
+                <input type="hidden" name="$!group.userPass.key" value="$!group.userPass.value"/>
+##              用户权限
+                <input type="hidden" name="$!group.isSuper.key" value="$!group.isSuper.value"/>
+##              用户id
+                <input type="hidden" name="$!group.userId.key" value="$!group.userId.value"/>
+##              这里之所以设置隐藏字段是为了初始化该页面时用这些值来给对应的textarea赋初值
+                <input type="hidden" name="tempPass" value="$!user.userPass"/>
+                <input type="hidden" name="tempSuper" value="$!user.isSuper"/>
+                <input type="hidden" name="tempUserId" value="$!user.userId"/>
+                <input type="hidden" name="tempUserName" value="$!user.userName"/>
+##                <input type="hidden" name="tempUserEmail" value="$!user.userEmail"/>
+##                <input type="hidden" name="tempUserPhoneNumber" value="$!user.userPhoneNumber"/>
+##                <input type="hidden" name="tempUserCompany" value="$!user.userCompany"/>
+
+                <div class="transparentTap"
+                     style="margin: 20px;
+                     border-color:transparent;
+                     transform: rotate(355deg)">
+                    <div class="algorithmNewContent">
+<textarea id="userName" name="$!group.userName.key"
+          value="$!group.userName.value" class="am-form-field"
+          rows="2" cols="13"
+          placeholder="type user name..."></textarea>
+                    </div>
+                    <img src="$!assetsContent.getURI('i/userInfo/userName.png')"
+                         style="margin-top: 60px">
+                </div>
+
+##                <div class="transparentTap" style="margin: 20px;
+##                            border-color:transparent;">
+##                    <div class="algorithmNewContent">
+##<textarea id="userEmail" name="$!group.userEmail.key"
+##          value="$!group.userEmail.value" class="am-form-field"
+##          rows="2" cols="13"
+##          placeholder="type user email..."></textarea>
+##                    </div>
+##                    <img src="$!assetsContent.getURI('i/userInfo/email.png')"
+##                         style="margin-top: 60px">
+##                </div>
+##                <div class="transparentTap"
+##                     style="margin: 20px; border-color:transparent;
+##                     transform: rotate(8deg)">
+##                    <div class="algorithmNewContent">
+##<textarea id="userPhoneNumber" name="$!group.userPhoneNumber.key"
+##          value="$!group.userPhoneNumber.value" class="am-form-field"
+##          rows="2" cols="13"
+##          placeholder="type user phone number..."></textarea>
+##                    </div>
+##                    <img src="$!assetsContent.getURI('i/userInfo/phone.png')"
+##                         style="margin-top: 60px">
+##                </div>
+##                <div class="transparentTap" style="margin: 20px;
+##                            border-color:transparent;">
+##                    <div class="algorithmNewContent">
+##<textarea id="userCompany" name="$!group.userCompany.key"
+##          value="$!group.userCompany.value" class="am-form-field"
+##          rows="2" cols="13"
+##          placeholder="type user company..."></textarea>
+##                    </div>
+##                    <img src="$!assetsContent.getURI('i/userInfo/company.png')"
+##                         style="margin-top: 60px">
+##                </div>
+
+                <button class="transparentTap"
+                        style="margin: 30px;
+                        border-color:transparent;
+                        transform: rotate(350deg)"
+                        type="button">
+                    <div style="font-family: 'Syncopate';
+                                font-size: medium;
+                                text-transform: uppercase;
+                                text-align: left;
+                                color: red;
+                                font-size: small;
+                                margin-left: 10px;">
+                        change password ?
+                    </div>
+                    <img src="$!assetsContent.getURI('i/userInfo/userPass.png')"
+                         style="margin-top: 70px">
+                </button>
+
+                <div class="transparentTap" style="margin: 20px;
+                            border-color:transparent;">
+                    <div style="font-family: 'Syncopate';
+                                                font-size: medium;
+                                                text-transform: uppercase;
+                                                text-align: left;
+                                                font-size: small;
+                                                margin-left: 10px;margin-top: 30px">
+                        #if($!user.isSuper == 1)
+                            vip user<br/>
+                        #else
+                            ordinary user<br/>
+                            <div style="color: red;">
+                                update to vip ?
+                            </div>
+
+                        #end
+                    </div>
+                    <img src="$!assetsContent.getURI('i/userInfo/super.png')"
+                         style="margin-top: #if($!user.isSuper == 1)
+                                                80px;
+                                            #else
+                                                60px;
+                                            #end">
+                </div>
+
+                <input type="submit"
+                       class="transparentTap submitInputStyle"
+                       style="background-image: url('$!assetsContent.getURI("i/userInfo/update.png")')"
+                       name="event_submit_do_update" value="submit" />
+            </form>
+        </div>
+
+    ##    popOver  修改密码弹窗  需要先填写原始密码  然后输入两次新密码
+        <div class="theme-popover" id="popOver" style="height: 290px">
+            <div class="am-margin">
+                <fieldset class="am-form-set" style="width: 95%; margin: 30px 10px 10px; font-family: 'Syncopate';box-shadow: 0px 0px 0px 0px rgba(90, 90, 90, .1);">
+                    <div class="am-input-group" style="margin-top: -1px;">
+                        <span class="am-input-group-label" style="background-color: rgba(62, 164, 56,.4); color: #ffffff">
+                            <i class="am-icon-lock am-icon-fw"></i> &nbsp;change password
+                        </span>
+                    </div>
+                    <div class="am-input-group" style="">
+                        <input style="font-size: smaller; width: 388px" type="password" name="oldPassword" class="am-form-field" placeholder="type old password..." />
+                    </div>
+                    <div class="am-input-group" style="margin-top: -1px">
+                        <input style="font-size: smaller; width: 388px" type="password" name="newPassword" class="am-form-field" placeholder="type new password..." />
+                    </div>
+                    <div class="am-input-group" style="margin-top: -2px">
+                        <input style="font-size: smaller; width: 388px" type="password" name="newPassword_2" class="am-form-field" placeholder="type new password again..." />
+                    </div>
+                </fieldset>
+                <div class="am-cf" style="width: 95%; margin: 0px auto; font-family: 'Syncopate'">
+                    <button value="submit" id="sumbitNewPasswordBtn" name="" class="am-btn am-btn-primary am-btn-block transparentDivBlue" style="border-radius: 4px">submit</button>
+                    <button value="cancel" id="cancelBtn" class="am-btn am-btn-danger am-btn-block transparentDiv" style="border-radius: 4px">cancel</button>
+                </div>
+            </div>
+        </div>
+
+##      伴随popOver出现的阴影
+        <div class="theme-popover-mask"></div>
+
+##      模态框 放在这里才不会灰色
+        <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="my-modal-loading">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd" id="uploading" style="font-family: 'Syncopate'">updating</div>
+                <div class="am-modal-bd">
+                    <span class="am-icon-spinner am-icon-spin"></span>
+                </div>
+            </div>
+        </div>
+
+##      更新完成后 弹出的提示信息框
+        <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd"></div>
+                <div class="am-modal-bd" id="alertcontent" style="font-family: 'Syncopate';">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

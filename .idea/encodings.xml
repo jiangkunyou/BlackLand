@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/dlut/jky/app1/dao/JDBCTools.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/dlut/jky/app1/module/action/LoginAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/dlut/jky/app1/utils/ReadFromFile.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/dlut/jky/app1/utils/ReflectionUtils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/dlut/jky/app1/utils/SSHHelper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app1/templates/control" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app1/templates/control/algorithmNewTop.vm" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app1/templates/control/homeTop.vm" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app1/templates/control/top.vm" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/css/embed.default.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/background/back.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/background/claire-1920.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/background/dana-1920.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/background/hxs-1920.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/background/jky-1920.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/background/justin-1920.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/background/seth-1920.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/background/zise.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/cloudandtext.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/defaultFace.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/i/homeBack.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/image/HappyCloudLogo.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/myJs/ajaxfileupload.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/myJs/jquery-1.7.2.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/myJs/jquery-sinaEmotion-2.1.0.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/myJs/login.js" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

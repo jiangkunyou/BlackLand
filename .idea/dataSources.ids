@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - blackland@localhost" uuid="2716c40a-e036-47ab-8041-3eb2e55d4685">
+    <database-info product="MySQL" version="5.6.23" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.37 ( Revision: 09940f05b4c98150f352e787a2549f11a2e9da93 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="blackland"/>
+      <table id="2" parent="1" name="user"/>
+      <table id="3" parent="1" name="classifer"/>
+      <column id="4" parent="2" name="userId">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="5" parent="2" name="userName">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="6" parent="2" name="userPass">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="7" parent="2" name="isSuper">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="8" parent="2" name="PRIMARY">
+        <columns>userId</columns>
+        <primary>1</primary>
+      </key>
+      <column id="9" parent="3" name="classId">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="10" parent="3" name="className">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="11" parent="3" name="classDescrib">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <key id="12" parent="3" name="PRIMARY">
+        <columns>classId</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>

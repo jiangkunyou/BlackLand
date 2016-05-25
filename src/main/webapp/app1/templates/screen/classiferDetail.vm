@@ -1,0 +1,120 @@
+#*
+Created by IntelliJ IDEA.
+User: jiangkunyou
+Date: 15/11/306
+算法详情页面
+*#
+
+#* @vtlvariable name="classifer" type="com.dlut.jky.app1.beans.Classifer" *#
+
+$page.addBodyAttribute("class", "no-js")
+$page.addScript("$assetsContent.getURI('myJs/jquery-1.7.2.js')")
+$page.addScript("$assetsContent.getURI('myJs/ajaxfileupload.js')")
+$page.addScript("$assetsContent.getURI('myJs/classiferDetail.js')")
+
+<div class="myhero">
+    <div class="admin-content" id="myContent" style="text-align: center">
+        <div class="am-cf am-padding"></div>
+        <form action="" method="post" id="uploadform" name="uploadform" style="margin-top: 30px; margin-bottom: 40px">
+            <input type="hidden" value="$!classifer.classId">
+
+            <div class="transparentTapBig" style="margin: 20px;
+                 border-color:transparent; transform: rotate(-5deg)">
+<textarea class="textareaStyle" rows="8" cols="40" disabled>
+    $!classifer.classDescrib
+</textarea>
+                <img src="$!assetsContent.getURI('i/algorithmInfo/simpleinfo.png')"
+                             style="margin-top: 20px; margin-left: 290px">
+            </div>
+
+            <div class="transparentTapBig" style="margin: 40px; margin-left: 100px;
+                    border-color:transparent; width: 260px; height: 350px; transform: rotate(2deg)">
+<textarea class="textareaStyle" style="width: 85%" rows="6" cols="20" disabled>
+    可以一次性上传一至多个excel文件. 上传前请把所有excel文件统一封装在一个zip格式的压缩包中, 然后直接上传压缩包文件即可 ^_^!
+</textarea>
+                <img src="$!assetsContent.getURI('i/algorithmInfo/careful.png')"
+                     style="margin-top: 30px; margin-left: 50px">
+            </div>
+
+            <div style="margin-top: 60px; margin-bottom: 100px">
+
+##              选择文件(这里不支持IE)
+                <input id="inputfile" type="file" accept=".zip"
+                       name="inputfile" enctype="multipart/form-data" style="visibility: hidden; position: absolute;" />
+                <button class="am-btn am-btn-default transparentGreyButton"
+                        onclick="inputfile.click(); return false;"
+                        id="selectFileBtn">
+                    1
+                </button>
+
+            ##      查看选中文件
+                <button id="checkfile"
+                        class="am-btn am-btn-default transparentGreyButton am-disabled"
+                        data-am-offcanvas="{target: '#doc-oc-1', effect: 'push'}">
+                    2
+                </button>
+
+            ##      上传数据
+                <input type="button" id="uploadfilebtn"
+                       class="am-btn am-btn-default transparentGreyButton am-disabled"
+                       value="3">
+
+            ##      运行算法
+                <input type="button"
+                       id="runAlgorithmBtn" name="$!app1Link.setTarget('runAlgorithm.vm')?classId=$!classifer.classId"
+                       class="am-btn am-btn-default transparentGreyButton am-disabled"
+                       value="4">
+
+            ##      下载结果数据
+                <button id="downloadFileBtn"
+                        class="am-btn am-btn-default transparentGreyButton am-disabled">
+                    <a href="$!app1Link.setTarget("fileDownload.do")" style="color: #ffffff">5</a>
+##                    5
+                </button>
+
+##    <a id="downloadFileBtn" href="$!app1Link.setTarget("fileDownload.do")"
+##       class="am-btn am-btn-default transparentGreyButton">
+##        <input id="downloadInput" type="button"
+####                           id="downloadFileBtn"
+##                           value="5" style="background: transparent; border: transparent; color: #ffffff;" onclick="this.blur();">
+##    </a>
+##                <input type="button"
+##                       id="downloadFileBtn"
+##                       class="am-btn am-btn-default transparentGreyButton"
+##                       value="5">
+
+##                    <a href="/Users/jiangkunyou/IdeaProjects/BlackLand/src/main/java/com/dlut/jky/app1/module/screen/Hadoop">5</a>
+
+            </div>
+        </form>
+
+    ##        模态框 放在这里才不会灰色
+        <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="my-modal-loading">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd" id="uploading" style="font-family: 'Syncopate'">uploading...</div>
+                <div class="am-modal-bd">
+                    <span class="am-icon-spinner am-icon-spin"></span>
+                </div>
+            </div>
+        </div>
+
+    ##        <input type="hidden" class="am-btn am-btn-primary" data-am-modal="{target: '#my-alert'}" id="uploadresult"/>
+        <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd"></div>
+                <div class="am-modal-bd" id="alertcontent" style="font-family: 'Syncopate';">
+                </div>
+            </div>
+        </div>
+
+    ##        侧边栏视图
+        <div id="doc-oc-1" class="am-offcanvas">
+            <div class="am-offcanvas-bar">
+                <div class="am-offcanvas-content am-align-left">
+                ##                    侧边栏内容
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,22 @@
+#fileWordCloud{
+    position: relative;
+    margin: 30px 55px 0px;
+    width: 400px;
+    height: 250px;
+    background: transparent;
+}
+#fileWordCloud a{
+    position: absolute;
+    padding: 3px 6px;
+    font-family: 'Syncopate';
+    font-size: xx-large;
+    color: #fff;
+    TOP: 0px;
+    font-weight: bold;
+    text-decoration: none;
+    left: 0px
+}
+#fileWordCloud a:hover{
+    border: #eee 1px solid;
+    background: #a0a0a0;
+}
